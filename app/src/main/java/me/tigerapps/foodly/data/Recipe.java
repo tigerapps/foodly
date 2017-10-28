@@ -13,7 +13,7 @@ public class Recipe {
         this.name = name;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
