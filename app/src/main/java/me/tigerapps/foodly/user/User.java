@@ -36,15 +36,15 @@ public class User {
     }
 
     /**
-     * Sets the amount of macros required to meet a Calorie goal given ratios of
-     * proteins, carbs, and fats. Ratios should add up to 1.00, but this is not
-     * checked in the method currently
+     * Sets the amount of macronutrients required to meet a Calorie goal given
+     * ratios of proteins, carbs, and fats. Ratios should add up to 1.00, but
+     * this is not checked in the method currently
      *
      * @param protein The ratio of protein
      * @param carbs   The ratio of carbs
      * @param fat     The ratio of fat
      */
-    public void setMacros(double protein, double carbs, double fat) {
+    public void setMacronutrients(double protein, double carbs, double fat) {
         this.protein = (calories * protein) / 4;
         this.carbs = (calories * carbs) / 4;
         this.fat = (calories * fat) / 9;
