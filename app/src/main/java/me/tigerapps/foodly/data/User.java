@@ -9,12 +9,12 @@ public class User extends BaseObservable {
     private int age; // In years
     private double calories; // Kilocalories
     private double carbs;    // In grams
-    private double carbs_ratio;
+    private double carbsRatio;
     private double fat;      // In grams
-    private double fat_ratio;
+    private double fatRatio;
     private int height; // In centimeters
     private double protein;  // In grams
-    private double protein_ratio;
+    private double proteinRatio;
     private Sex sex;
     private int weight; // In kilograms
 
@@ -36,9 +36,9 @@ public class User extends BaseObservable {
      * method currently.
      */
     public void calculateMacronutrients() {
-        this.fat = (calories * fat_ratio) / 9;
-        this.carbs = (calories * carbs_ratio) / 4;
-        this.protein = (calories * protein_ratio) / 4;
+        this.fat = (calories * fatRatio) / 9;
+        this.carbs = (calories * carbsRatio) / 4;
+        this.protein = (calories * proteinRatio) / 4;
         notifyPropertyChanged(BR.fat);
         notifyPropertyChanged(BR.carbs);
         notifyPropertyChanged(BR.protein);
@@ -60,8 +60,8 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getCarbs_ratio() {
-        return carbs_ratio;
+    public double getCarbsRatio() {
+        return carbsRatio;
     }
 
     @Bindable
@@ -70,8 +70,8 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getFat_ratio() {
-        return fat_ratio;
+    public double getFatRatio() {
+        return fatRatio;
     }
 
     @Bindable
@@ -85,8 +85,8 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getProtein_ratio() {
-        return protein_ratio;
+    public double getProteinRatio() {
+        return proteinRatio;
     }
 
     @Bindable
@@ -106,13 +106,13 @@ public class User extends BaseObservable {
         calculateMacronutrients();
     }
 
-    public void setCarbs_ratio(double carbs_ratio) {
-        this.carbs_ratio = carbs_ratio;
+    public void setCarbsRatio(final double carbs_ratio) {
+        this.carbsRatio = carbs_ratio;
         calculateMacronutrients();
     }
 
-    public void setFat_ratio(double fat_ratio) {
-        this.fat_ratio = fat_ratio;
+    public void setFatRatio(final double fat_ratio) {
+        this.fatRatio = fat_ratio;
         calculateMacronutrients();
     }
 
@@ -123,8 +123,8 @@ public class User extends BaseObservable {
         calculateMacronutrients();
     }
 
-    public void setProtein_ratio(double protein_ratio) {
-        this.protein_ratio = protein_ratio;
+    public void setProteinRatio(final double protein_ratio) {
+        this.proteinRatio = protein_ratio;
         calculateMacronutrients();
     }
 
