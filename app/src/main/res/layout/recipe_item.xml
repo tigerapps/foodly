@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="me.tigerapps.foodly.MainActivity" />
+
+        <variable
+            name="key"
+            type="String" />
+
+        <variable
+            name="item"
+            type="me.tigerapps.foodly.data.Recipe" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:background="?android:attr/listChoiceBackgroundIndicator"
+        android:onClick="@{(v) -> ((MainActivity) v.context).viewRecipe(item)}"
+        android:padding="8dp">
+
+        <TextView
+            style="?android:attr/textAppearanceListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}" />
+
+    </RelativeLayout>
+</layout>

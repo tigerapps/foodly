@@ -8,7 +8,9 @@
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
     <string name="protein">Protein</string>
+    <string name="recipe">Recipe</string>
     <string name="recipe_photo">Recipe photo</string>
+    <string name="recommend_recipe">Pick for me</string>
     <string name="this_week">This week</string>
     <string name="welcome">Welcome</string>
 </resources>

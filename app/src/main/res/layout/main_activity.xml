@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="me.tigerapps.foodly.MainActivity" />
+
+        <variable
+            name="model"
+            type="me.tigerapps.foodly.MainActivityModel" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/welcome_message"
+            style="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="@string/welcome" />
+            android:gravity="center_horizontal"
+            android:text="@string/welcome"
+            android:textSize="24pt" />
 
         <TextView
             android:id="@+id/goal_summary_label"
@@ -18,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/welcome_message"
+            android:layout_marginTop="16dp"
             android:text="@string/goal_summary" />
 
         <GridLayout
@@ -62,14 +77,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/goal_summary"
+            android:layout_marginTop="16dp"
             android:text="@string/this_week" />
 
         <ListView
             android:id="@+id/this_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/recommend_recipe"
+            android:layout_below="@+id/this_week_label"
+            app:items="@{model.thisWeeksRecipes}"
+            app:layout="@{@layout/recipe_item}" />
+
+        <Button
+            android:id="@+id/recommend_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_below="@+id/this_week_label" />
+            android:onClick="@{(v) -> ((MainActivity) v.context).viewRecipe(model.recommendRecipe())}"
+            android:text="@string/recommend_recipe" />
 
     </RelativeLayout>
 </layout>
