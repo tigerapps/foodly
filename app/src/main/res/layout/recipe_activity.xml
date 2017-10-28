@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/recipe_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/recipe_photo" />
+
+            <TextView
+                android:id="@+id/recipe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/recipe_photo"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/recipe_ingredients_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipe_photo"
+                android:text="@string/ingredients" />
+
+            <LinearLayout
+                android:id="@+id/recipe_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipe_ingredients_label"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/recipe_instructions_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipe_ingredients"
+                android:text="@string/instructions" />
+
+            <TextView
+                android:id="@+id/recipe_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recipe_instructions_label" />
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>
