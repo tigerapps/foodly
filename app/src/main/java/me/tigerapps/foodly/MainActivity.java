@@ -14,6 +14,8 @@ public class MainActivity extends Activity {
     private final MainActivityModel model = new MainActivityModel();
 
     public void viewRecipe(final Recipe recipe) {
+        if (recipe == null)
+            return;
         final Intent intent = new Intent(this, RecipeActivity.class);
         intent.putExtra(EXTRA_RECIPE, recipe.getId());
         startActivity(intent);

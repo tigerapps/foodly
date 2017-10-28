@@ -18,10 +18,12 @@ public class MainActivityModel extends BaseObservable {
     }
 
     public Recipe recommendRecipe() {
-        final int index = new Random().nextInt(thisWeeksRecipes.size());
+        if (thisWeeksRecipes.size() < 1)
+            return null;
+        final int selection = new Random().nextInt(thisWeeksRecipes.size());
         int i = 0;
         for (final Recipe recipe : thisWeeksRecipes.values())
-            if (i++ == index)
+            if (i++ == selection)
                 return recipe;
         return null;
     }
