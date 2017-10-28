@@ -1,9 +1,5 @@
 package me.tigerapps.foodly.user;
 
-/**
- * Created by chris on 10/27/17.
- */
-
 public class User {
     private int weight; // In kilograms
     private int height; // In centimeters

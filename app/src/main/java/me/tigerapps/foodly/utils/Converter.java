@@ -1,9 +1,5 @@
 package me.tigerapps.foodly.utils;
 
-/**
- * Created by chris on 10/28/17.
- */
-
 public final class Converter {
     public static double inchesToCm(double inches) {
         return (inches * 2.54);
