@@ -1,4 +1,4 @@
-package com.example.application;
+package me.tigerapps.foodly;
 
 import android.app.Activity;
 import android.os.Bundle;

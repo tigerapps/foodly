@@ -13,7 +13,7 @@ android {
         enabled true
     }
     defaultConfig {
-        applicationId "com.example.application"
+        applicationId "me.tigerapps.foodly"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 100
