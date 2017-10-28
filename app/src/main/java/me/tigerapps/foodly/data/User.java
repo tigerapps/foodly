@@ -31,9 +31,7 @@ public class User extends BaseObservable {
     }
 
     /**
-     * Set the amount of macronutrients required to meet a Calorie goal given ratios of proteins,
-     * carbs, and fats to total intake. Ratios should add up to 1.00, but this is not checked in the
-     * method currently.
+     * Calculates amounts of macronutrients in grams needed to meet the Calorie goal
      */
     public void calculateMacronutrients() {
         this.fat = (calories * fatRatio) / 9;
