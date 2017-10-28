@@ -9,6 +9,9 @@ public class User {
     private int height; // In centimeters
     private int age;
     private double calories; // Kilocalories
+    private double protein;  // In grams
+    private double carbs;    // In grams
+    private double fat;      // In grams
     private Sex sex;
 
     /**
@@ -34,6 +37,21 @@ public class User {
         } else {
             calories = ((10 * weight) + (6.25 * height) - (5 * age) - 161);
         }
+    }
+
+    /**
+     * Sets the amount of macros required to meet a Calorie goal given ratios of
+     * proteins, carbs, and fats. Ratios should add up to 1.00, but this is not
+     * checked in the method currently
+     *
+     * @param protein The ratio of protein
+     * @param carbs   The ratio of carbs
+     * @param fat     The ratio of fat
+     */
+    public void setMacros(double protein, double carbs, double fat) {
+        this.protein = (calories * protein) / 4;
+        this.carbs = (calories * carbs) / 4;
+        this.fat = (calories * fat) / 9;
     }
 
     // Setters and getters
