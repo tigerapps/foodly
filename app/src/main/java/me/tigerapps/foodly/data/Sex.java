@@ -1,4 +1,4 @@
-package me.tigerapps.foodly.user;
+package me.tigerapps.foodly.data;
 
 /**
  * Created by chris on 10/27/17.

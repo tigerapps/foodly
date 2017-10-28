@@ -1,4 +1,4 @@
-package me.tigerapps.foodly.user;
+package me.tigerapps.foodly.data;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
