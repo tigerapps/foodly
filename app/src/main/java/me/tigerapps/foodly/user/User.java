@@ -1,6 +1,11 @@
 package me.tigerapps.foodly.user;
 
-public class User {
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import me.tigerapps.foodly.BR;
+
+public class User extends BaseObservable {
     private int age; // In years
     private double calories; // Kilocalories
     private double carbs;    // In grams
@@ -35,35 +40,43 @@ public class User {
         } else {
             calories = ((10 * weight) + (6.25 * height) - (5 * age) - 161);
         }
+        notifyPropertyChanged(BR.calories);
     }
 
+    @Bindable
     public int getAge() {
         return age;
     }
 
+    @Bindable
     public double getCalories() {
         return calories;
     }
 
+    @Bindable
     public int getHeight() {
         return height;
     }
 
+    @Bindable
     public Sex getSex() {
         return sex;
     }
 
+    @Bindable
     public int getWeight() {
         return weight;
     }
 
     public void setAge(final int age) {
         this.age = age;
+        notifyPropertyChanged(BR.age);
         calculateCalories();
     }
 
     public void setHeight(final int height) {
         this.height = height;
+        notifyPropertyChanged(BR.height);
         calculateCalories();
     }
 
@@ -84,11 +97,13 @@ public class User {
 
     public void setSex(final Sex sex) {
         this.sex = sex;
+        notifyPropertyChanged(BR.sex);
         calculateCalories();
     }
 
     public void setWeight(final int weight) {
         this.weight = weight;
+        notifyPropertyChanged(BR.weight);
         calculateCalories();
     }
 }
