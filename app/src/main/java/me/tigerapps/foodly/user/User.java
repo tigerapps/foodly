@@ -9,27 +9,14 @@ public class User extends BaseObservable {
     private int age; // In years
     private double calories; // Kilocalories
     private double carbs;    // In grams
+    private double carbs_ratio;
     private double fat;      // In grams
+    private double fat_ratio;
     private int height; // In centimeters
     private double protein;  // In grams
+    private double protein_ratio;
     private Sex sex;
     private int weight; // In kilograms
-
-    /**
-     * Sets up the User object with given values
-     *
-     * @param weight Weight in Kilograms
-     * @param height Height in Centimeters
-     * @param age    Age
-     * @param sex    MALE or FEMALE
-     */
-    public User(final int weight, final int height, final int age, final Sex sex) {
-        this.weight = weight;
-        this.height = height;
-        this.age = age;
-        this.sex = sex;
-        calculateCalories();
-    }
 
     /**
      * Calculate calorie needs using the Mifflin-St Jeor Equation.
@@ -43,6 +30,20 @@ public class User extends BaseObservable {
         notifyPropertyChanged(BR.calories);
     }
 
+    /**
+     * Set the amount of macronutrients required to meet a Calorie goal given ratios of proteins,
+     * carbs, and fats to total intake. Ratios should add up to 1.00, but this is not checked in the
+     * method currently.
+     */
+    public void calculateMacronutrients() {
+        this.fat = (calories * fat_ratio) / 9;
+        this.carbs = (calories * carbs_ratio) / 4;
+        this.protein = (calories * protein_ratio) / 4;
+        notifyPropertyChanged(BR.fat);
+        notifyPropertyChanged(BR.carbs);
+        notifyPropertyChanged(BR.protein);
+    }
+
     @Bindable
     public int getAge() {
         return age;
@@ -54,8 +55,38 @@ public class User extends BaseObservable {
     }
 
     @Bindable
+    public double getCarbs() {
+        return carbs;
+    }
+
+    @Bindable
+    public double getCarbs_ratio() {
+        return carbs_ratio;
+    }
+
+    @Bindable
+    public double getFat() {
+        return fat;
+    }
+
+    @Bindable
+    public double getFat_ratio() {
+        return fat_ratio;
+    }
+
+    @Bindable
     public int getHeight() {
         return height;
+    }
+
+    @Bindable
+    public double getProtein() {
+        return protein;
+    }
+
+    @Bindable
+    public double getProtein_ratio() {
+        return protein_ratio;
     }
 
     @Bindable
@@ -72,38 +103,42 @@ public class User extends BaseObservable {
         this.age = age;
         notifyPropertyChanged(BR.age);
         calculateCalories();
+        calculateMacronutrients();
+    }
+
+    public void setCarbs_ratio(double carbs_ratio) {
+        this.carbs_ratio = carbs_ratio;
+        calculateMacronutrients();
+    }
+
+    public void setFat_ratio(double fat_ratio) {
+        this.fat_ratio = fat_ratio;
+        calculateMacronutrients();
     }
 
     public void setHeight(final int height) {
         this.height = height;
         notifyPropertyChanged(BR.height);
         calculateCalories();
+        calculateMacronutrients();
     }
 
-    /**
-     * Set the amount of macronutrients required to meet a Calorie goal given ratios of proteins,
-     * carbs, and fats to total intake. Ratios should add up to 1.00, but this is not checked in the
-     * method currently.
-     *
-     * @param fat     The portion of the diet that should be fat
-     * @param carbs   The portion of the diet that should be carbs
-     * @param protein The portion of the diet that should be protein
-     */
-    public void setMacronutrients(final double fat, final double carbs, final double protein) {
-        this.fat = (calories * fat) / 9;
-        this.carbs = (calories * carbs) / 4;
-        this.protein = (calories * protein) / 4;
+    public void setProtein_ratio(double protein_ratio) {
+        this.protein_ratio = protein_ratio;
+        calculateMacronutrients();
     }
 
     public void setSex(final Sex sex) {
         this.sex = sex;
         notifyPropertyChanged(BR.sex);
         calculateCalories();
+        calculateMacronutrients();
     }
 
     public void setWeight(final int weight) {
         this.weight = weight;
         notifyPropertyChanged(BR.weight);
         calculateCalories();
+        calculateMacronutrients();
     }
 }
