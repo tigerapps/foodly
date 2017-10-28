@@ -11,6 +11,14 @@ public class User {
     private double calories; // Kilocalories
     private Sex sex;
 
+    /**
+     * Sets up the User object with given values
+     *
+     * @param weight Weight in Kilograms
+     * @param height Height in Centimeters
+     * @param age    Age
+     * @param sex    MALE or FEMALE
+     */
     public User(int weight, int height, int age, Sex sex) {
         this.weight = weight;
         this.height = height;
