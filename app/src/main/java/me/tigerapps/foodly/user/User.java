@@ -1,14 +1,14 @@
 package me.tigerapps.foodly.user;
 
 public class User {
-    private int weight; // In kilograms
-    private int height; // In centimeters
-    private int age;
+    private int age; // In years
     private double calories; // Kilocalories
-    private double protein;  // In grams
     private double carbs;    // In grams
     private double fat;      // In grams
+    private int height; // In centimeters
+    private double protein;  // In grams
     private Sex sex;
+    private int weight; // In kilograms
 
     /**
      * Sets up the User object with given values
@@ -18,7 +18,7 @@ public class User {
      * @param age    Age
      * @param sex    MALE or FEMALE
      */
-    public User(int weight, int height, int age, Sex sex) {
+    public User(final int weight, final int height, final int age, final Sex sex) {
         this.weight = weight;
         this.height = height;
         this.age = age;
@@ -26,7 +26,9 @@ public class User {
         calculateCalories();
     }
 
-    // Calculate calories using Mifflin-St Jeor Equation
+    /**
+     * Calculate calorie needs using the Mifflin-St Jeor Equation.
+     */
     private void calculateCalories() {
         if (sex == Sex.MALE) {
             calories = ((10 * weight) + (6.25 * height) - (5 * age) + 5);
@@ -35,59 +37,58 @@ public class User {
         }
     }
 
-    /**
-     * Sets the amount of macronutrients required to meet a Calorie goal given
-     * ratios of proteins, carbs, and fats. Ratios should add up to 1.00, but
-     * this is not checked in the method currently
-     *
-     * @param protein The ratio of protein
-     * @param carbs   The ratio of carbs
-     * @param fat     The ratio of fat
-     */
-    public void setMacronutrients(double protein, double carbs, double fat) {
-        this.protein = (calories * protein) / 4;
-        this.carbs = (calories * carbs) / 4;
-        this.fat = (calories * fat) / 9;
+    public int getAge() {
+        return age;
     }
 
-    // Setters and getters
     public double getCalories() {
-        return (calories);
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-        calculateCalories();
-    }
-
-    public int getWeight() {
-        return (weight);
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-        calculateCalories();
+        return calories;
     }
 
     public int getHeight() {
-        return (height);
+        return height;
     }
 
-    public void setAge(int age) {
+    public Sex getSex() {
+        return sex;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setAge(final int age) {
         this.age = age;
         calculateCalories();
     }
 
-    public int getAge() {
-        return (age);
+    public void setHeight(final int height) {
+        this.height = height;
+        calculateCalories();
     }
 
-    public void setSex(Sex sex) {
+    /**
+     * Set the amount of macronutrients required to meet a Calorie goal given ratios of proteins,
+     * carbs, and fats to total intake. Ratios should add up to 1.00, but this is not checked in the
+     * method currently.
+     *
+     * @param fat     The portion of the diet that should be fat
+     * @param carbs   The portion of the diet that should be carbs
+     * @param protein The portion of the diet that should be protein
+     */
+    public void setMacronutrients(final double fat, final double carbs, final double protein) {
+        this.fat = (calories * fat) / 9;
+        this.carbs = (calories * carbs) / 4;
+        this.protein = (calories * protein) / 4;
+    }
+
+    public void setSex(final Sex sex) {
         this.sex = sex;
         calculateCalories();
     }
 
-    public Sex getSex() {
-        return (sex);
+    public void setWeight(final int weight) {
+        this.weight = weight;
+        calculateCalories();
     }
 }
