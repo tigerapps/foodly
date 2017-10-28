@@ -6,15 +6,15 @@ import android.databinding.Bindable;
 import me.tigerapps.foodly.BR;
 
 public class User extends BaseObservable {
-    private int age;                  // In years
-    private double calories;          // Kilocalories
-    private double carbs;             // In grams
-    private double carbsRatio;        // 0.00 - 1.00
-    private double fat;               // In grams
-    private double fatRatio;          // 0.00 - 1.00
-    private int height;               // In centimeters
-    private double protein;           // In grams
-    private double proteinRatio;      // 0.00 - 1.00
+    private int age;                   // In years
+    private double calories;           // Kilocalories
+    private double carbs;              // In grams
+    private double carbsRatio = .50;   // Percent (0-100)
+    private double fat;                // In grams
+    private double fatRatio = .25;     // Percent (0-100)
+    private int height;                // In centimeters
+    private double protein;            // In grams
+    private double proteinRatio = .25; // Percent (0-100)
     private Sex sex;
     private int weight;               // In kilograms
 
