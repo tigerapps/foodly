@@ -1,22 +1,28 @@
 package me.tigerapps.foodly.data;
 
+import android.content.SharedPreferences;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import me.tigerapps.foodly.BR;
 
 public class User extends BaseObservable {
-    private int age;                   // In years
-    private double calories;           // Kilocalories per day
-    private double carbs;              // In grams per day
-    private double carbsRatio = .50;   // Percent (0-100)
-    private double fat;                // In grams per day
-    private double fatRatio = .25;     // Percent (0-100)
-    private int height;                // In centimeters
-    private double protein;            // In grams per day
-    private double proteinRatio = .25; // Percent (0-100)
+    private static final String USER_AGE = "user_age";
+    private static final String USER_SEX = "user_sex";
+    private static final String USER_HEIGHT = "user_height";
+    private static final String USER_WEIGHT = "user_weight";
+
+    private int age;              // In years
+    private double calories;      // Kilocalories per day
+    private double carbs;         // In grams per day
+    private double carbsRatio;    // Percent (0-100)
+    private double fat;           // In grams per day
+    private double fatRatio;      // Percent (0-100)
+    private int height;           // In centimeters
+    private double protein;       // In grams per day
+    private double proteinRatio;  // Percent (0-100)
     private Sex sex;
-    private int weight;               // In kilograms
+    private int weight;           // In kilograms
 
     /**
      * Calculate calorie needs using the Mifflin-St Jeor Equation.
@@ -33,10 +39,10 @@ public class User extends BaseObservable {
     /**
      * Calculates amounts of macronutrients in grams needed to meet the Calorie goal
      */
-    private void calculateMacronutrients() {
-        this.fat = (calories * fatRatio) / 9;
-        this.carbs = (calories * carbsRatio) / 4;
-        this.protein = (calories * proteinRatio) / 4;
+    public void calculateMacronutrients() {
+        this.fat = (calories * fatRatio) / 900;
+        this.carbs = (calories * carbsRatio) / 400;
+        this.protein = (calories * proteinRatio) / 400;
         notifyPropertyChanged(BR.fat);
         notifyPropertyChanged(BR.carbs);
         notifyPropertyChanged(BR.protein);
