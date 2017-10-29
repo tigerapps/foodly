@@ -31,7 +31,7 @@ public class User extends BaseObservable {
     public User(SharedPreferences preferences) {
         this.preferences = preferences;
         age = preferences.getInt(USER_AGE, 20);
-        sex = Sex.valueOf(preferences.getString(USER_SEX, "Male"));
+        sex = Sex.valueOf(preferences.getString(USER_SEX, "MALE"));
         height = preferences.getInt(USER_HEIGHT, 150);
         weight = preferences.getInt(USER_WEIGHT, 45);
         fatRatio = preferences.getFloat(MACRO_FAT, 30);
