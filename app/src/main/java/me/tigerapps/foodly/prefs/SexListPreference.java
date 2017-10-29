@@ -19,7 +19,10 @@ public class SexListPreference extends ListPreference {
         for (int i = 0; i < sexes.length; ++i)
             entries[i] = context.getResources().getString(sexes[i].getLabelResId());
         setEntries(entries);
-        setEntryValues(entries);
+        final CharSequence[] values = new CharSequence[sexes.length];
+        for (int i = 0; i < sexes.length; ++i)
+            values[i] = sexes[i].name();
+        setEntryValues(values);
     }
 
     public SexListPreference(final Context context, final AttributeSet attrs,
