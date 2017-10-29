@@ -24,7 +24,7 @@
             android:layout_alignParentTop="true"
             android:gravity="center_horizontal"
             android:text="@string/welcome"
-            android:textSize="24pt" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/goal_summary_label"
