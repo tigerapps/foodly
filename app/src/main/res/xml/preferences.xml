@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="User information">
+        <EditTextPreference
+            android:key="user_age"
+            android:title="@string/age" />
+        <me.tigerapps.foodly.prefs.SexListPreference
+            android:key="user_sex"
+            android:title="@string/sex" />
+        <EditTextPreference
+            android:key="user_height"
+            android:title="@string/height" />
+        <EditTextPreference
+            android:key="user_weight"
+            android:title="@string/weight" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Diet preferences">
+        <me.tigerapps.foodly.prefs.DietListPreference
+            android:key="macro_diet"
+            android:title="@string/diet_type" />
+        <CheckBoxPreference
+            android:key="macro_advanced"
+            android:title="@string/macro_advanced" />
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:dependency="macro_advanced"
+            android:key="macro_fat"
+            android:max="100"
+            android:min="0"
+            android:title="@string/fat" />
+        <SeekBarPreference
+            android:defaultValue="40"
+            android:dependency="macro_advanced"
+            android:key="macro_carbs"
+            android:max="100"
+            android:min="0"
+            android:title="@string/carbs" />
+        <SeekBarPreference
+            android:defaultValue="30"
+            android:dependency="macro_advanced"
+            android:key="macro_protein"
+            android:max="100"
+            android:min="0"
+            android:title="@string/protein" />
+    </PreferenceCategory>
+</PreferenceScreen>

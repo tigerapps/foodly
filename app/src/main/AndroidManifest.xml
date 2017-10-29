@@ -18,6 +18,7 @@
             android:name=".RecipeActivity"
             android:label="@string/recipe"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>

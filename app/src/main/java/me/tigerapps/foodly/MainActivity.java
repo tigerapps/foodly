@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import me.tigerapps.foodly.data.Recipe;
 import me.tigerapps.foodly.databinding.MainActivityBinding;
@@ -27,5 +29,22 @@ public class MainActivity extends Activity {
         final MainActivityBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.main_activity);
         binding.setModel(model);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

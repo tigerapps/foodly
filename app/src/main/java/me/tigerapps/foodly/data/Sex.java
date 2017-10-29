@@ -1,10 +1,18 @@
 package me.tigerapps.foodly.data;
 
-/**
- * Created by chris on 10/27/17.
- */
+import me.tigerapps.foodly.R;
 
 public enum Sex {
-    MALE,
-    FEMALE
+    MALE(R.string.male),
+    FEMALE(R.string.female);
+
+    private final int labelResId;
+
+    Sex(final int labelResId) {
+        this.labelResId = labelResId;
+    }
+
+    public int getLabelResId() {
+        return labelResId;
+    }
 }
