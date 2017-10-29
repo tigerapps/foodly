@@ -11,6 +11,9 @@ public class User extends BaseObservable {
     private static final String USER_SEX = "user_sex";
     private static final String USER_HEIGHT = "user_height";
     private static final String USER_WEIGHT = "user_weight";
+    private static final String MACRO_FAT = "macro_fat";
+    private static final String MACRO_CARBS = "macro_carbs";
+    private static final String MACRO_PROTEIN = "macro_protein";
 
     private int age;              // In years
     private double calories;      // Kilocalories per day
@@ -23,6 +26,20 @@ public class User extends BaseObservable {
     private float proteinRatio;   // Percent (0-100)
     private Sex sex;
     private int weight;           // In kilograms
+    private final SharedPreferences preferences;
+
+    public User(SharedPreferences preferences) {
+        this.preferences = preferences;
+        age = preferences.getInt(USER_AGE, 20);
+        sex = Sex.valueOf(preferences.getString(USER_SEX, "Male"));
+        height = preferences.getInt(USER_HEIGHT, 150);
+        weight = preferences.getInt(USER_WEIGHT, 45);
+        fatRatio = preferences.getFloat(MACRO_FAT, 30);
+        carbsRatio = preferences.getFloat(MACRO_CARBS, 40);
+        proteinRatio = preferences.getFloat(MACRO_PROTEIN, 30);
+        calculateCalories();
+        calculateMacronutrients();
+    }
 
     /**
      * Calculate calorie needs using the Mifflin-St Jeor Equation.
