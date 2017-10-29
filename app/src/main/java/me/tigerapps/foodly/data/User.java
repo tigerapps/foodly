@@ -122,6 +122,9 @@ public class User extends BaseObservable {
 
     public void setAge(final int age) {
         this.age = age;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putInt(USER_AGE, age);
+        ed.commit();
         notifyPropertyChanged(BR.age);
         calculateCalories();
         calculateMacronutrients();
@@ -132,6 +135,11 @@ public class User extends BaseObservable {
         this.fatRatio += delta / 2;
         this.proteinRatio += delta / 2;
         this.carbsRatio -= delta;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putFloat(MACRO_CARBS, carbsRatio);
+        ed.putFloat(MACRO_FAT, fatRatio);
+        ed.putFloat(MACRO_PROTEIN, proteinRatio);
+        ed.commit();
         calculateMacronutrients();
     }
 
@@ -140,11 +148,19 @@ public class User extends BaseObservable {
         this.carbsRatio += delta / 2;
         this.proteinRatio += delta / 2;
         this.fatRatio -= delta;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putFloat(MACRO_CARBS, carbsRatio);
+        ed.putFloat(MACRO_FAT, fatRatio);
+        ed.putFloat(MACRO_PROTEIN, proteinRatio);
+        ed.commit();
         calculateMacronutrients();
     }
 
     public void setHeight(final int height) {
         this.height = height;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putInt(USER_HEIGHT, height);
+        ed.commit();
         notifyPropertyChanged(BR.height);
         calculateCalories();
         calculateMacronutrients();
@@ -155,11 +171,19 @@ public class User extends BaseObservable {
         this.carbsRatio += delta / 2;
         this.fatRatio += delta / 2;
         this.proteinRatio -= delta;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putFloat(MACRO_CARBS, carbsRatio);
+        ed.putFloat(MACRO_FAT, fatRatio);
+        ed.putFloat(MACRO_PROTEIN, proteinRatio);
+        ed.commit();
         calculateMacronutrients();
     }
 
     public void setSex(final Sex sex) {
         this.sex = sex;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putString(USER_SEX, sex.name());
+        ed.commit();
         notifyPropertyChanged(BR.sex);
         calculateCalories();
         calculateMacronutrients();
@@ -167,6 +191,9 @@ public class User extends BaseObservable {
 
     public void setWeight(final int weight) {
         this.weight = weight;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putInt(USER_WEIGHT, weight);
+        ed.commit();
         notifyPropertyChanged(BR.weight);
         calculateCalories();
         calculateMacronutrients();
