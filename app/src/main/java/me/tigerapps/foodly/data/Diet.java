@@ -7,6 +7,13 @@ public enum Diet {
     HIGH_FIBER("high-fiber", R.string.diet_high_fiber),
     LOW_FAT("low-fat", R.string.diet_low_fat);
 
+    static Diet fromName(final String name) {
+        for (final Diet diet : Diet.values())
+            if (diet.getName().equals(name))
+                return diet;
+        return null;
+    }
+
     private final int labelResId;
     private final String name;
 

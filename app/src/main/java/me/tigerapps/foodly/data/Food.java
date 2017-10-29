@@ -4,44 +4,39 @@ import android.util.JsonReader;
 
 import java.io.IOException;
 
-import javax.lang.model.element.NestingKind;
-
 public class Food {
-    private final String id;
-    private final String name;
-
-    public static Food parseJson(final JsonReader reader) throws IOException {
-
-        String id = null;
-        String name = null;
+    static Food parseJson(final JsonReader reader) throws IOException {
+        String label = null;
+        String uri = null;
 
         reader.beginObject();
-        while(reader.hasNext()) {
+        while (reader.hasNext()) {
             final String property = reader.nextName();
-
             if ("label".equals(property))
-                name = reader.nextString();
+                label = reader.nextString();
             else if ("uri".equals(property))
-                id = reader.nextString();
+                uri = reader.nextString();
             else
                 reader.skipValue();
         }
-
         reader.endObject();
-        return new Food(id, name);
+
+        return new Food(uri, label);
     }
 
-    public Food(final String id, final String name) {
-        this.id = id;
-        this.name = name;
+    private final String label;
+    private final String uri;
+
+    private Food(final String label, final String uri) {
+        this.label = label;
+        this.uri = uri;
     }
 
-    public String getId() {
-        return id;
+    public String getLabel() {
+        return label;
     }
 
-    public String getName() {
-        return name;
+    public String getUri() {
+        return uri;
     }
-
 }

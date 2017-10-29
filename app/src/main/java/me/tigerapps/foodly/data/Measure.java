@@ -4,42 +4,39 @@ import android.util.JsonReader;
 
 import java.io.IOException;
 
-public enum Measure {
-    ;
+public class Measure {
+    static Measure parseJson(final JsonReader reader) throws IOException {
+        String label = null;
+        String uri = null;
 
-    private final String id;
-    private final String name;
-
-    public static Measure parseJson(final JsonReader reader) throws IOException {
-        String id = null;
-        String name = null;
         reader.beginObject();
-
-        while(reader.hasNext()){
+        while (reader.hasNext()) {
             final String property = reader.nextName();
-            if("uri".equals(property))
-                id = reader.nextString();
-            else if( "label".equals(property))
-                name = reader.nextString();
+            if ("label".equals(property))
+                label = reader.nextString();
+            else if ("uri".equals(property))
+                uri = reader.nextString();
             else
                 reader.skipValue();
         }
-
         reader.endObject();
-        return null;
-    }
-    Measure(final String id, final String name) {
-        this.id = id;
-        this.name = name;
+
+        return new Measure(label, uri);
     }
 
-    public String getId() {
-        return id;
+    private final String label;
+    private final String uri;
+
+    private Measure(final String label, final String uri) {
+        this.label = label;
+        this.uri = uri;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-
+    public String getUri() {
+        return uri;
+    }
 }

@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
         if (recipe == null)
             return;
         final Intent intent = new Intent(this, RecipeActivity.class);
-        intent.putExtra(EXTRA_RECIPE, recipe.getId());
+        intent.putExtra(EXTRA_RECIPE, recipe.getUri());
         startActivity(intent);
     }
 

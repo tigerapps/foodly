@@ -3,47 +3,50 @@ package me.tigerapps.foodly.data;
 import android.util.JsonReader;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
-    private final String id;
-    private final List<Food> ingredients = new ArrayList<>();
-    private final String name;
-
-    public static Recipe parseJson(final JsonReader reader)throws IOException {
-        String id = null;
-        String name = null;
+    public static Recipe parseJson(final JsonReader reader) throws IOException {
+        List<Ingredient> ingredients = null;
+        String label = null;
+        String uri = null;
 
         reader.beginObject();
-        while(reader.hasNext()){
+        while (reader.hasNext()) {
             final String property = reader.nextName();
-            if("uri".equals(property))
-                id = reader.nextString();
-            else if("label".equals(property))
-                name = reader.nextString();
+            if ("ingredients".equals(property))
+                ingredients = Ingredient.parseJsonArray(reader);
+            else if ("label".equals(property))
+                label = reader.nextString();
+            else if ("uri".equals(property))
+                uri = reader.nextString();
             else
                 reader.skipValue();
-
         }
         reader.endObject();
-        return new Recipe(id, name);
+
+        return new Recipe(ingredients, label, uri);
     }
 
-    public Recipe(final String id, final String name) {
-        this.id = id;
-        this.name = name;
+    private final String uri;
+    private final List<Ingredient> ingredients;
+    private final String label;
+
+    public Recipe(final List<Ingredient> ingredients, final String label, final String uri) {
+        this.ingredients = ingredients;
+        this.label = label;
+        this.uri = uri;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public List<Food> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
+    }
+
+    public String getUri() {
+        return uri;
     }
 }

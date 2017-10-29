@@ -33,7 +33,7 @@
                 android:layout_alignTop="@+id/recipe_photo"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@{recipe.name}" />
+                android:text="@{recipe.label}" />
 
             <TextView
                 android:id="@+id/recipe_ingredients_label"
