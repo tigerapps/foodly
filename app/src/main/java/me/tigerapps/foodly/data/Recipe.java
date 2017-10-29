@@ -8,8 +8,8 @@ import java.util.List;
 public class Recipe {
     public static Recipe parseJson(final JsonReader reader) throws IOException {
         double calories = 0;
-        List<Diet> dietLabels = null;
-        List<Health> healthLabels = null;
+        List<DietLabel> dietLabels = null;
+        List<HealthLabel> healthLabels = null;
         List<Ingredient> ingredients = null;
         String label = null;
         String uri = null;
@@ -21,9 +21,9 @@ public class Recipe {
             if ("calories".equals(property))
                 calories = reader.nextDouble();
             else if ("dietLabels".equals(property))
-                dietLabels = Diet.parseJsonArray(reader);
+                dietLabels = DietLabel.parseJsonArray(reader);
             else if ("healthLabels".equals(property))
-                healthLabels = Health.parseJsonArray(reader);
+                healthLabels = HealthLabel.parseJsonArray(reader);
             else if ("ingredients".equals(property))
                 ingredients = Ingredient.parseJsonArray(reader);
             else if ("label".equals(property))
@@ -41,15 +41,15 @@ public class Recipe {
     }
 
     private final double calories;
-    private final List<Diet> dietLabels;
-    private final List<Health> healthLabels;
+    private final List<DietLabel> dietLabels;
+    private final List<HealthLabel> healthLabels;
     private final List<Ingredient> ingredients;
     private final String label;
     private final String uri;
     private final String yield;
 
-    private Recipe(final double calories, final List<Diet> dietLabels,
-                   final List<Health> healthLabels, final List<Ingredient> ingredients,
+    private Recipe(final double calories, final List<DietLabel> dietLabels,
+                   final List<HealthLabel> healthLabels, final List<Ingredient> ingredients,
                    final String label, final String uri, final String yield) {
         this.calories = calories;
         this.dietLabels = dietLabels;
@@ -64,11 +64,11 @@ public class Recipe {
         return calories;
     }
 
-    public List<Diet> getDietLabels() {
+    public List<DietLabel> getDietLabels() {
         return dietLabels;
     }
 
-    public List<Health> getHealthLabels() {
+    public List<HealthLabel> getHealthLabels() {
         return healthLabels;
     }
 

@@ -8,24 +8,24 @@ import java.util.List;
 
 import me.tigerapps.foodly.R;
 
-public enum Diet {
+public enum DietLabel {
     BALANCED("balanced", R.string.diet_balanced),
     HIGH_FIBER("high-fiber", R.string.diet_high_fiber),
     LOW_FAT("low-fat", R.string.diet_low_fat);
 
-    static Diet fromName(final String name) {
-        for (final Diet diet : Diet.values())
-            if (diet.getName().equals(name))
-                return diet;
+    static DietLabel fromName(final String name) {
+        for (final DietLabel dietLabel : DietLabel.values())
+            if (dietLabel.getName().equals(name))
+                return dietLabel;
         return null;
     }
 
-    static List<Diet> parseJsonArray(final JsonReader reader) throws IOException {
-        final List<Diet> dietLabels = new ArrayList<>();
+    static List<DietLabel> parseJsonArray(final JsonReader reader) throws IOException {
+        final List<DietLabel> dietLabels = new ArrayList<>();
 
         reader.beginArray();
         while (reader.hasNext())
-            dietLabels.add(Diet.fromName(reader.nextString()));
+            dietLabels.add(DietLabel.fromName(reader.nextString()));
         reader.endArray();
 
         return dietLabels;
@@ -34,7 +34,7 @@ public enum Diet {
     private final int labelResId;
     private final String name;
 
-    Diet(final String name, final int labelResId) {
+    DietLabel(final String name, final int labelResId) {
         this.labelResId = labelResId;
         this.name = name;
     }

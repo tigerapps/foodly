@@ -15,7 +15,7 @@
             android:title="@string/weight" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Diet preferences">
-        <me.tigerapps.foodly.prefs.DietListPreference
+        <me.tigerapps.foodly.prefs.DietLabelListPreference
             android:key="macro_diet"
             android:title="@string/diet_type" />
         <CheckBoxPreference
