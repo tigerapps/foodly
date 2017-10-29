@@ -7,13 +7,13 @@ import me.tigerapps.foodly.BR;
 
 public class User extends BaseObservable {
     private int age;                   // In years
-    private double calories;           // Kilocalories
-    private double carbs;              // In grams
+    private double calories;           // Kilocalories per day
+    private double carbs;              // In grams per day
     private double carbsRatio = .50;   // Percent (0-100)
-    private double fat;                // In grams
+    private double fat;                // In grams per day
     private double fatRatio = .25;     // Percent (0-100)
     private int height;                // In centimeters
-    private double protein;            // In grams
+    private double protein;            // In grams per day
     private double proteinRatio = .25; // Percent (0-100)
     private Sex sex;
     private int weight;               // In kilograms
