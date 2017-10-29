@@ -2,8 +2,6 @@ package me.tigerapps.foodly.db;
 
 import android.provider.BaseColumns;
 
-import me.tigerapps.foodly.R;
-
 final class DbSchema {
     public static final String SQL_CREATE_TABLES = "";
 
@@ -19,6 +17,7 @@ final class DbSchema {
     private DbSchema() {
         // Prevent instantiation.
     }
+
     public static class DietTable implements BaseColumns {
         public static final String TABLE_NAME = "diets";
         public static final String COLUMN_NAME_TYPE = "diet_type";
