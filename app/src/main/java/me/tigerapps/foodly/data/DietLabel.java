@@ -8,7 +8,7 @@ import java.util.List;
 
 import me.tigerapps.foodly.R;
 
-public enum DietLabel {
+public enum DietLabel implements Labeled {
     BALANCED("balanced", R.string.diet_balanced),
     HIGH_FIBER("high-fiber", R.string.diet_high_fiber),
     LOW_FAT("low-fat", R.string.diet_low_fat);

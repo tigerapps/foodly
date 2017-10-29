@@ -8,7 +8,7 @@ import java.util.List;
 
 import me.tigerapps.foodly.R;
 
-public enum HealthLabel {
+public enum HealthLabel implements Labeled {
     VEGETARIAN("vegetarian", R.string.vegetarian),
     GLUTEN_FREE("gluten-free", R.string.gluten_free),
     FAT_FREE("fat-free", R.string.fat_free),
