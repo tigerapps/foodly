@@ -159,12 +159,7 @@ public class User extends BaseObservable {
         this.fatRatio += delta / 2;
         this.proteinRatio += delta / 2;
         this.carbsRatio -= delta;
-        SharedPreferences.Editor ed = preferences.edit();
-        ed.putFloat(MACRO_CARBS, carbsRatio);
-        ed.putFloat(MACRO_FAT, fatRatio);
-        ed.putFloat(MACRO_PROTEIN, proteinRatio);
-        ed.commit();
-        calculateMacronutrients();
+        updateMacronutrients(this.carbsRatio, this.fatRatio, this.proteinRatio);
     }
 
     public void setFatRatio(final float fatRatio) {
@@ -172,12 +167,7 @@ public class User extends BaseObservable {
         this.carbsRatio += delta / 2;
         this.proteinRatio += delta / 2;
         this.fatRatio -= delta;
-        SharedPreferences.Editor ed = preferences.edit();
-        ed.putFloat(MACRO_CARBS, carbsRatio);
-        ed.putFloat(MACRO_FAT, fatRatio);
-        ed.putFloat(MACRO_PROTEIN, proteinRatio);
-        ed.commit();
-        calculateMacronutrients();
+        updateMacronutrients(this.carbsRatio, this.fatRatio, this.proteinRatio);
     }
 
     public void setHeight(final int height) {
@@ -195,12 +185,7 @@ public class User extends BaseObservable {
         this.carbsRatio += delta / 2;
         this.fatRatio += delta / 2;
         this.proteinRatio -= delta;
-        SharedPreferences.Editor ed = preferences.edit();
-        ed.putFloat(MACRO_CARBS, carbsRatio);
-        ed.putFloat(MACRO_FAT, fatRatio);
-        ed.putFloat(MACRO_PROTEIN, proteinRatio);
-        ed.commit();
-        calculateMacronutrients();
+        updateMacronutrients(this.carbsRatio, this.fatRatio, this.proteinRatio);
     }
 
     public void setSex(final Sex sex) {
@@ -220,6 +205,21 @@ public class User extends BaseObservable {
         ed.commit();
         notifyPropertyChanged(BR.weight);
         calculateCalories();
+        calculateMacronutrients();
+    }
+
+    private void updateMacronutrients(final float carbsRatio, final float fatRatio, final float proteinRatio) {
+        this.carbsRatio = carbsRatio;
+        this.fatRatio = fatRatio;
+        this.proteinRatio = proteinRatio;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putFloat(MACRO_CARBS, carbsRatio);
+        ed.putFloat(MACRO_FAT, fatRatio);
+        ed.putFloat(MACRO_PROTEIN, proteinRatio);
+        ed.commit();
+        notifyPropertyChanged(BR.carbsRatio);
+        notifyPropertyChanged(BR.fatRatio);
+        notifyPropertyChanged(BR.proteinRatio);
         calculateMacronutrients();
     }
 }
