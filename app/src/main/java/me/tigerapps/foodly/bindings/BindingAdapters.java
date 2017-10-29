@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.text.InputFilter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import me.tigerapps.foodly.R;
@@ -97,6 +98,16 @@ public final class BindingAdapters {
         }
         // Either the list changed, or this is an entirely new listener because the layout changed.
         adapter.setMap(newMap);
+    }
+
+    @BindingAdapter({"maxValue"})
+    public static void setMaxValue(final NumberPicker numberPicker, final int maxValue) {
+        numberPicker.setMaxValue(maxValue);
+    }
+
+    @BindingAdapter({"minValue"})
+    public static void setMinValue(final NumberPicker numberPicker, final int minValue) {
+        numberPicker.setMinValue(minValue);
     }
 
     @BindingAdapter({"android:textStyle"})
