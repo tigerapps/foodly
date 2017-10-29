@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="User information">
-        <EditTextPreference
+        <me.tigerapps.foodly.prefs.EditIntegerPreference
+            android:inputType="number"
             android:key="user_age"
+            android:numeric="integer"
             android:title="@string/age" />
         <me.tigerapps.foodly.prefs.SexListPreference
             android:key="user_sex"
             android:title="@string/sex" />
-        <EditTextPreference
+        <me.tigerapps.foodly.prefs.EditIntegerPreference
+            android:inputType="number"
             android:key="user_height"
+            android:numeric="integer"
             android:title="@string/height" />
-        <EditTextPreference
+        <me.tigerapps.foodly.prefs.EditIntegerPreference
+            android:inputType="number"
             android:key="user_weight"
+            android:numeric="integer"
             android:title="@string/weight" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Diet preferences">
