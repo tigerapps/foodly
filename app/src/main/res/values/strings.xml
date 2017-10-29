@@ -29,4 +29,16 @@
     <string name="vegetarian">Vegetarian</string>
     <string name="weight">Weight</string>
     <string name="welcome">Welcome</string>
+    <string name="welcomeMessageFirstTime">Thank you for using our app.\nPlease input the following information for customized advices</string>
+    <string name="inputAge">Age:</string>
+    <string name="inputSex">Sex:</string>
+    <string name="inputHeight">Height:</string>
+    <string name="inputWeight">Weight:</string>
+    <string name="dietOption">Your dietoption:</string>
+    <string name="seekbarProtein">Protein</string>
+    <string name="seekbarCalories">Calories</string>
+    <string name="seekbarFat">Fat</string>
+    <string name="seekbarCarbs">Carbohydrates</string>
+    <string name="endOfWelcomeMessages">Thank you for your patience!\nNow entering the app</string>
+
 </resources>
