@@ -12,6 +12,7 @@ public class User extends BaseObservable {
     private static final String USER_HEIGHT = "user_height";
     private static final String USER_WEIGHT = "user_weight";
     private static final String MACRO_ADVANCED = "macro_advanced";
+    private static final String MACRO_DIET = "macro_diet";
     private static final String MACRO_FAT = "macro_fat";
     private static final String MACRO_CARBS = "macro_carbs";
     private static final String MACRO_PROTEIN = "macro_protein";
@@ -20,6 +21,7 @@ public class User extends BaseObservable {
     private double calories;      // In kilocalories per day
     private double carbs;         // In grams per day
     private int carbsRatio;       // Percent (0-100)
+    private DietLabel dietType;
     private double fat;           // In grams per day
     private int fatRatio;         // Percent (0-100)
     private int height;           // In centimeters
@@ -35,8 +37,9 @@ public class User extends BaseObservable {
         age = preferences.getInt(USER_AGE, 20);
         sex = Sex.valueOf(preferences.getString(USER_SEX, "MALE"));
         height = preferences.getInt(USER_HEIGHT, 150);
-        isCustomDiet = preferences.getBoolean(MACRO_ADVANCED, false);
         weight = preferences.getInt(USER_WEIGHT, 45);
+        dietType = DietLabel.valueOf(preferences.getString(MACRO_DIET, "BALANCED"));
+        isCustomDiet = preferences.getBoolean(MACRO_ADVANCED, false);
         fatRatio = preferences.getInt(MACRO_FAT, 30);
         carbsRatio = preferences.getInt(MACRO_CARBS, 40);
         proteinRatio = preferences.getInt(MACRO_PROTEIN, 30);
@@ -100,6 +103,11 @@ public class User extends BaseObservable {
     @Bindable
     public int getCarbsRatio() {
         return carbsRatio;
+    }
+
+    @Bindable
+    public DietLabel getDietType() {
+        return dietType;
     }
 
     @Bindable
@@ -176,6 +184,14 @@ public class User extends BaseObservable {
         ed.putBoolean(MACRO_ADVANCED, isCustomDiet);
         ed.commit();
         notifyPropertyChanged(BR.customDiet);
+    }
+
+    public void setDietType(DietLabel dietType) {
+        this.dietType = dietType;
+        SharedPreferences.Editor ed = preferences.edit();
+        ed.putString(MACRO_DIET, dietType.name());
+        ed.commit();
+        notifyPropertyChanged(BR.dietType);
     }
 
     public void setFatRatio(final int fatRatio) {
