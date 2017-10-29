@@ -21,7 +21,7 @@ public class DietLabelListPreference extends ListPreference {
         setEntries(entries);
         final CharSequence[] values = new CharSequence[dietLabels.length];
         for (int i = 0; i < dietLabels.length; ++i)
-            values[i] = dietLabels[i].getName();
+            values[i] = dietLabels[i].name();
         setEntryValues(values);
     }
 

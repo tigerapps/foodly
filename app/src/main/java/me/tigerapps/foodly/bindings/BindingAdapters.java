@@ -1,6 +1,7 @@
 package me.tigerapps.foodly.bindings;
 
 import android.databinding.BindingAdapter;
+import android.databinding.InverseBindingAdapter;
 import android.databinding.ObservableList;
 import android.databinding.adapters.ListenerUtil;
 import android.graphics.Typeface;
@@ -8,9 +9,12 @@ import android.text.InputFilter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import me.tigerapps.foodly.R;
+import me.tigerapps.foodly.data.DietLabel;
+import me.tigerapps.foodly.data.Labeled;
 
 /**
  * Static methods for use by generated code in the Android data binding library.
@@ -18,6 +22,16 @@ import me.tigerapps.foodly.R;
 
 @SuppressWarnings("unused")
 public final class BindingAdapters {
+    @InverseBindingAdapter(attribute = "android:selectedItemPosition")
+    public static Labeled captureSelectedLabeledItem(final Spinner spinner) {
+        return (Labeled) spinner.getSelectedItem();
+    }
+
+    @BindingAdapter({"android:entries"})
+    public static <T extends Labeled> void setEntries(final Spinner spinner, final T[] entries) {
+        spinner.setAdapter(new LabeledAdapter<T>(spinner.getContext(), entries));
+    }
+
     @BindingAdapter({"filter"})
     public static void setFilter(final TextView view, final InputFilter filter) {
         view.setFilters(new InputFilter[]{filter});
@@ -108,6 +122,11 @@ public final class BindingAdapters {
     @BindingAdapter({"minValue"})
     public static void setMinValue(final NumberPicker numberPicker, final int minValue) {
         numberPicker.setMinValue(minValue);
+    }
+
+    @BindingAdapter({"android:selectedItemPosition"})
+    public static void setSelectedItemPosition(final Spinner spinner, final DietLabel dietLabel) {
+        spinner.setSelection(dietLabel.ordinal());
     }
 
     @BindingAdapter({"android:textStyle"})
