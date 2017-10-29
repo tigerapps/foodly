@@ -50,7 +50,8 @@ public class User extends BaseObservable {
         } else {
             calories = ((10 * weight) + (6.25 * height) - (5 * age) - 161);
         }
-        notifyPropertyChanged(BR.calories);
+        notifyPropertyChanged(BR.caloriesPerDay);
+        notifyPropertyChanged(BR.caloriesPerWeek);
     }
 
     /**
@@ -60,9 +61,12 @@ public class User extends BaseObservable {
         this.fat = (calories * fatRatio) / 900;
         this.carbs = (calories * carbsRatio) / 400;
         this.protein = (calories * proteinRatio) / 400;
-        notifyPropertyChanged(BR.fat);
-        notifyPropertyChanged(BR.carbs);
-        notifyPropertyChanged(BR.protein);
+        notifyPropertyChanged(BR.fatPerDay);
+        notifyPropertyChanged(BR.carbsPerDay);
+        notifyPropertyChanged(BR.proteinPerDay);
+        notifyPropertyChanged(BR.fatPerWeek);
+        notifyPropertyChanged(BR.carbsPerWeek);
+        notifyPropertyChanged(BR.proteinPerWeek);
     }
 
     @Bindable
@@ -71,13 +75,23 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getCalories() {
+    public double getCaloriesPerDay() {
         return calories;
     }
 
     @Bindable
-    public double getCarbs() {
+    public double getCaloriesPerWeek() {
+        return calories * 7;
+    }
+
+    @Bindable
+    public double getCarbsPerDay() {
         return carbs;
+    }
+
+    @Bindable
+    public double getCarbsPerWeek() {
+        return carbs * 7;
     }
 
     @Bindable
@@ -86,8 +100,13 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getFat() {
+    public double getFatPerDay() {
         return fat;
+    }
+
+    @Bindable
+    public double getFatPerWeek() {
+        return fat * 7;
     }
 
     @Bindable
@@ -101,8 +120,13 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getProtein() {
+    public double getProteinPerDay() {
         return protein;
+    }
+
+    @Bindable
+    public double getProteinPerWeek() {
+        return protein * 7;
     }
 
     @Bindable
