@@ -8,33 +8,34 @@ import java.util.List;
 
 import me.tigerapps.foodly.R;
 
-public enum Diet {
-    BALANCED("balanced", R.string.diet_balanced),
-    HIGH_FIBER("high-fiber", R.string.diet_high_fiber),
-    LOW_FAT("low-fat", R.string.diet_low_fat);
+public enum Health {
+    VEGETARIAN("vegetarian", R.string.vegeterian),
+    GLUTEN_FREE("gluten-free", R.string.gluten_free),
+    FAT_FREE("fat-free", R.string.fat_free),
+    PEANUT_FREE("peanut-free", R.string.peanut_free);
 
-    static Diet fromName(final String name) {
-        for (final Diet diet : Diet.values())
+    static Health fromName(final String name) {
+        for (final Health diet : Health.values())
             if (diet.getName().equals(name))
                 return diet;
         return null;
     }
 
-    static List<Diet> parseJsonArray(final JsonReader reader) throws IOException {
-        final List<Diet> dietLabels = new ArrayList<>();
+    static List<Health> parseJsonArray(final JsonReader reader) throws IOException {
+        final List<Health> healthLabels = new ArrayList<>();
 
         reader.beginArray();
         while (reader.hasNext())
-            dietLabels.add(Diet.fromName(reader.nextString()));
+            healthLabels.add(Health.fromName(reader.nextString()));
         reader.endArray();
 
-        return dietLabels;
+        return healthLabels;
     }
 
     private final int labelResId;
     private final String name;
 
-    Diet(final String name, final int labelResId) {
+    Health(final String name, final int labelResId) {
         this.labelResId = labelResId;
         this.name = name;
     }
