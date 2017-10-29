@@ -7,7 +7,7 @@
     <string name="carbs">Carbs</string>
     <string name="diet_balanced">Balanced</string>
     <string name="diet_high_fiber">High fiber</string>
-    <string name="diet_low_fat">Low carb</string>
+    <string name="diet_low_fat">Low fat</string>
     <string name="diet_type">Diet type</string>
     <string name="fat">Fat</string>
     <string name="fat_free">Fat free</string>
@@ -17,7 +17,7 @@
     <string name="height">Height</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
-    <string name="macro_advanced">Choose individual nutrient weights</string>
+    <string name="macro_advanced">Choose individual nutrient proportions</string>
     <string name="male">Male</string>
     <string name="next">Next</string>
     <string name="peanut_free">Peanut free</string>
@@ -27,13 +27,13 @@
     <string name="ready_title">Let\'s go!</string>
     <string name="recipe">Recipe</string>
     <string name="recipe_photo">Recipe photo</string>
-    <string name="recommend_recipe">Pick for me</string>
+    <string name="recommend_recipe">I\'m feeling lucky</string>
     <string name="settings">Settings</string>
     <string name="sex">Sex</string>
     <string name="this_week">This week</string>
     <string name="vegetarian">Vegetarian</string>
     <string name="weight">Weight</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Hungry?</string>
     <string name="welcome_message">We\'ll need some information about you to provide the best suggestions.</string>
     <string name="welcome_subtitle">Our goal is to help you make the most of your meals.</string>
     <string name="welcome_title">Welcome to Foodly!</string>
