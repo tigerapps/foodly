@@ -15,12 +15,12 @@ public class User extends BaseObservable {
     private int age;              // In years
     private double calories;      // Kilocalories per day
     private double carbs;         // In grams per day
-    private double carbsRatio;    // Percent (0-100)
+    private float carbsRatio;     // Percent (0-100)
     private double fat;           // In grams per day
-    private double fatRatio;      // Percent (0-100)
+    private float fatRatio;       // Percent (0-100)
     private int height;           // In centimeters
     private double protein;       // In grams per day
-    private double proteinRatio;  // Percent (0-100)
+    private float proteinRatio;   // Percent (0-100)
     private Sex sex;
     private int weight;           // In kilograms
 
@@ -64,7 +64,7 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getCarbsRatio() {
+    public float getCarbsRatio() {
         return carbsRatio;
     }
 
@@ -74,7 +74,7 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getFatRatio() {
+    public float getFatRatio() {
         return fatRatio;
     }
 
@@ -89,7 +89,7 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public double getProteinRatio() {
+    public float getProteinRatio() {
         return proteinRatio;
     }
 
@@ -110,7 +110,7 @@ public class User extends BaseObservable {
         calculateMacronutrients();
     }
 
-    public void setCarbsRatio(final double carbsRatio) {
+    public void setCarbsRatio(final float carbsRatio) {
         final double delta = this.carbsRatio - carbsRatio;
         this.fatRatio += delta / 2;
         this.proteinRatio += delta / 2;
@@ -118,7 +118,7 @@ public class User extends BaseObservable {
         calculateMacronutrients();
     }
 
-    public void setFatRatio(final double fatRatio) {
+    public void setFatRatio(final float fatRatio) {
         final double delta = this.fatRatio - fatRatio;
         this.carbsRatio += delta / 2;
         this.proteinRatio += delta / 2;
@@ -133,7 +133,7 @@ public class User extends BaseObservable {
         calculateMacronutrients();
     }
 
-    public void setProteinRatio(final double proteinRatio) {
+    public void setProteinRatio(final float proteinRatio) {
         final double delta = this.proteinRatio - proteinRatio;
         this.carbsRatio += delta / 2;
         this.fatRatio += delta / 2;
