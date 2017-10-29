@@ -1,8 +1,6 @@
 package me.tigerapps.foodly;
 
 import android.databinding.BaseObservable;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
 
 import java.util.Random;
 
