@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="me.tigerapps.foodly.data.DietLabel" />
+
+        <variable
+            name="user"
+            type="me.tigerapps.foodly.data.User" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/your_diet"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/diet_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/diet_choice"
+                android:text="@string/diet_type"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <Spinner
+                android:id="@+id/diet_choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@{DietLabel.values}"
+                app:layout_constraintTop_toBottomOf="@+id/diet_label" />
+
+            <CheckBox
+                android:id="@+id/macro_advanced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:checked="@={user.customDiet}"
+                android:text="@string/macro_advanced"
+                app:layout_constraintTop_toBottomOf="@+id/diet_choice" />
+
+            <TextView
+                android:id="@+id/fat_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/fat_percent"
+                android:text="@string/fat"
+                app:layout_constraintTop_toBottomOf="@+id/macro_advanced" />
+
+            <SeekBar
+                android:id="@+id/fat_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{user.customDiet}"
+                android:max="51"
+                android:progress="@={user.fatRatio / 2}"
+                app:layout_constraintTop_toBottomOf="@+id/fat_label" />
+
+            <TextView
+                android:id="@+id/carbs_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/carbs_percent"
+                android:text="@string/carbs"
+                app:layout_constraintTop_toBottomOf="@+id/fat_percent" />
+
+            <SeekBar
+                android:id="@+id/carbs_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{user.customDiet}"
+                android:max="51"
+                android:progress="@={user.carbsRatio / 2}"
+                app:layout_constraintTop_toBottomOf="@+id/carbs_label" />
+
+            <TextView
+                android:id="@+id/protein_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:labelFor="@+id/protein_percent"
+                android:text="@string/protein"
+                app:layout_constraintTop_toBottomOf="@+id/carbs_percent" />
+
+            <SeekBar
+                android:id="@+id/protein_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{user.customDiet}"
+                android:max="51"
+                android:progress="@={user.proteinRatio / 2}"
+                app:layout_constraintTop_toBottomOf="@+id/protein_label" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

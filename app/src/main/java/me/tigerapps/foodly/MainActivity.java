@@ -2,8 +2,10 @@ package me.tigerapps.foodly;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,6 +31,11 @@ public class MainActivity extends Activity {
         final MainActivityBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.main_activity);
         binding.setModel(model);
+
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean provisioned = preferences.getBoolean(WelcomeActivity.APP_PROVISIONED, false);
+        if (!provisioned)
+            startActivity(new Intent(this, WelcomeActivity.class));
     }
 
     @Override

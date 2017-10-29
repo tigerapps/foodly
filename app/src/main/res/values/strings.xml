@@ -2,6 +2,7 @@
 <resources>
     <string name="age">Age</string>
     <string name="app_name">Foodly</string>
+    <string name="back">Back</string>
     <string name="calories">Calories</string>
     <string name="carbs">Carbs</string>
     <string name="diet_balanced">Balanced</string>
@@ -18,8 +19,12 @@
     <string name="instructions">Instructions</string>
     <string name="macro_advanced">Choose individual nutrient weights</string>
     <string name="male">Male</string>
+    <string name="next">Next</string>
     <string name="peanut_free">Peanut free</string>
     <string name="protein">Protein</string>
+    <string name="ready_message">Based on your selections, we found some recipes you might like. Choose your favorites from the list on the next screen.</string>
+    <string name="ready_subtitle">That\'s all the information we need.</string>
+    <string name="ready_title">Let\'s go!</string>
     <string name="recipe">Recipe</string>
     <string name="recipe_photo">Recipe photo</string>
     <string name="recommend_recipe">Pick for me</string>
@@ -29,16 +34,9 @@
     <string name="vegetarian">Vegetarian</string>
     <string name="weight">Weight</string>
     <string name="welcome">Welcome</string>
-    <string name="welcomeMessageFirstTime">Thank you for using our app.\nPlease input the following information for customized advices</string>
-    <string name="inputAge">Age:</string>
-    <string name="inputSex">Sex:</string>
-    <string name="inputHeight">Height:</string>
-    <string name="inputWeight">Weight:</string>
-    <string name="dietOption">Your dietoption:</string>
-    <string name="seekbarProtein">Protein</string>
-    <string name="seekbarCalories">Calories</string>
-    <string name="seekbarFat">Fat</string>
-    <string name="seekbarCarbs">Carbohydrates</string>
-    <string name="endOfWelcomeMessages">Thank you for your patience!\nNow entering the app</string>
-
+    <string name="welcome_message">We\'ll need some information about you to provide the best suggestions.</string>
+    <string name="welcome_subtitle">Our goal is to help you make the most of your meals.</string>
+    <string name="welcome_title">Welcome to Foodly!</string>
+    <string name="your_body">Your body</string>
+    <string name="your_diet">Your diet</string>
 </resources>

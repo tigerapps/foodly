@@ -16,7 +16,7 @@
         android:paddingBottom="8dp"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:text="@string/ready_title"
+        android:text="@string/welcome_title"
         android:textSize="30sp" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:text="@string/ready_subtitle"
+        android:text="@string/welcome_subtitle"
         android:textSize="18sp" />
 
     <TextView
@@ -35,6 +35,6 @@
         android:gravity="bottom"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
-        android:text="@string/ready_message" />
+        android:text="@string/welcome_message" />
 
 </LinearLayout>
