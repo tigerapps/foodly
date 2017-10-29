@@ -33,7 +33,7 @@ public class User extends BaseObservable {
     /**
      * Calculates amounts of macronutrients in grams needed to meet the Calorie goal
      */
-    public void calculateMacronutrients() {
+    private void calculateMacronutrients() {
         this.fat = (calories * fatRatio) / 9;
         this.carbs = (calories * carbsRatio) / 4;
         this.protein = (calories * proteinRatio) / 4;
